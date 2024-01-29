@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    تم الطلب بنجاح
+{% endblock title %}
+    
+
+
+{% block content %}
+<section>
+    <div class="container mt-2">  
+         <center>
+            <h2>تم إرسال الطلب بنجاح</h2>
+            <p>سيقوم فريقنا بمراجعة طلبك في أقرب وقت</p>
+            <a href="{% url 'page:index' %}" class="btn btn-dark">العودة للصفحة الرئيسية</a>
+         </center>
+    </div>
+</section>
+{% endblock content %}
+    

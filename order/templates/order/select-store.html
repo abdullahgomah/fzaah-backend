@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    طلب إعادة بيع | اختر المتجر
+{% endblock title %}
+    
+
+
+{% block content %}
+    
+
+<section>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <label class="form-label" for="store-input">اختر المتجر*</label>
+            <select class="form-select" name="store-input" id="store-input" required>
+                
+                {% for store in stores %}
+                    <option value="{{store.id}}">{{store.name}}</option>
+                {% endfor %}
+                    
+            </select>
+            <button class="mt-2 btn btn-dark" type="submit">التالي</button>
+        </form>
+
+    </div>
+</section>
+
+
+{% endblock content %}
+    

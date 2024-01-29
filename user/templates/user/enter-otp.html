@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    أدخل رمز التحقق
+{% endblock title %}
+    
+
+{% block content %}
+    <div class="container mt-2">
+        <h1>أدخل رمز التحقق</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">رمز التحقق</label>
+                <input type="text" name="otp" class="form-control">
+                <p class="form-text">سيصلك رمز الجوال مكون من 5 أرقام</p>
+            </div>
+            <button type="submit" class="btn btn-dark">تحقق</button>
+        </form>
+    </div>
+{% endblock content %}
+    

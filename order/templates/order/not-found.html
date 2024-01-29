@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    الطلب غير موجود
+{% endblock title %}
+    
+
+
+{% block content %}
+    <section>
+        <div class="container mt-2">
+            <center>
+                <h5>
+                    الطلب غير موجود
+                </h5>
+                <a href="{% url 'page:index' %}" class="btn btn-dark">العودة للصفحة الرئيسية</a>
+            </center>
+        </div>
+    </section>
+{% endblock content %}
+    

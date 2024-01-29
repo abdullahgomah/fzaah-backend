@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    الصفحة الرئيسية
+{% endblock title %}
+    
+
+
+{% block content %}
+    <div class="container mt-2">
+        <div class="row"></div>
+            <div class="card col-md-3" >
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">طلب إعادة بيع</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{% url 'order:select-store' %}" class="btn btn-primary">طلب إعادة بيع</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    

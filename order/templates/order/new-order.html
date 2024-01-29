@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    طلب إعادة بيع
+{% endblock title %}
+
+
+
+{% block content %}
+
+<style>
+    #div_id_products > div { 
+        padding: 1rem 1em;
+        border: var(--bs-border-width) solid var(--bs-border-color);
+        border-radius: 0.375rem;
+    }
+</style>
+
+<div class="container mt-2 mb-3">
+
+
+    
+    <h3>طلب إعادة بيع</h3>
+
+
+    <div>
+
+        <p>
+            {{info.service_description|safe}}
+        </p>
+        <br>
+        <p>
+            {{info.payment_methods|safe}}
+        </p>
+        <br>
+        <p>
+            {{info.public_policies|safe}}
+        </p>
+        <br>
+        <p>
+            {{info.terms|safe}}
+        </p>
+        <br>
+
+
+    </div>
+
+
+    <h3>تفاصيل الطلب</h3>
+    <form method="POST" id="new_order_form">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="order-number-input" class="form-label">رقم الطلب*</label>
+            <input type="text" id="order-number-input" required name="order-number-input" placeholder="أدخل رقم الطلب في المتجر" class="form-control" >
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="">
+                    <label for="product_select_input" class="form-label">المنتجات</label>
+                    <select id="product_select_input" class="form-select">
+                        <option value="" disabled selected>اختر المنتج</option>
+                        
+                        {% for product in products %}
+                            <option value="{{product.id}}" data-price="{{product.selling_price|floatformat:"0"}}">{{product.name}}</option>
+                        {% endfor %}
+                            
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="">
+                    <label for="qty-input" class="form-label">الكمية*</label>
+                    <input type="number" min="1" id="qty-input" name="qty-input" placeholder="أدخل الكمية" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="row">
+                <div class="col-md-6">الإجمالي: </div>
+                <div class="col-md-6">
+                    <p id="total_product_price"></p>
+                </div>
+            </div>
+        </div>
+        <a id="btn-add-product" class="btn btn-sm btn-dark">إضافة للعقد</a>
+
+        <div class="mt-3 updated-products-container">
+            <h3>المنتجات</h3>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">رقم المنتج</th>
+                    <th scope="col">اسم المنتج</th>
+                    <th scope="col">الكمية</th>
+                    <th scope="col">سعر البيع</th>
+                    <th scope="col">الاجمالي</th>
+                    <th scope="col">التحكم</th>
+                  </tr>
+                </thead>
+                <tbody id="table-content">
+                </tbody>
+              </table>
+        </div>
+
+
+        <br>
+        <button type="submit" class="btn btn-dark">طلب إعادة بيع</button>
+    </form>
+
+</div>
+
+
+
+<script>
+
+
+    let productSelectInput = document.querySelector('#product_select_input'); 
+    let totalPriceParagraph = document.querySelector('#total_product_price');
+    let qtyInput = document.querySelector('#qty-input'); 
+
+    productSelectInput.addEventListener('change', () => {
+        var price = Number(productSelectInput.options[productSelectInput.selectedIndex].dataset.price); 
+        if (qtyInput.value != "") { 
+            totalPriceParagraph.textContent = price * Number(qtyInput.value) 
+        } else { 
+            totalPriceParagraph.textContent = price; 
+        }
+    })
+
+    qtyInput.addEventListener('input', () => {
+        if (qtyInput.value != "" && productSelectInput.value != "") {
+            var price = Number(productSelectInput.options[productSelectInput.selectedIndex].dataset.price); 
+            totalPriceParagraph.textContent = Number(qtyInput.value) * price; 
+        }
+    })
+
+
+    let tableContent = document.querySelector('#table-content'); 
+    let btnAddProduct = document.querySelector('#btn-add-product'); 
+
+
+    let btn_s_DelProduct = document.querySelectorAll('.btn-del-product'); 
+
+    let productsList = []; 
+    let count = 0; 
+
+
+    btnAddProduct.addEventListener('click', () => {
+        if (productSelectInput.value != "" ) { 
+            let productId = productSelectInput.value; 
+            let productQTY = 1; 
+            let sellingPrice = productSelectInput.options[productSelectInput.selectedIndex].dataset.price; 
+            if (qtyInput.value != "") { 
+                try { 
+                    productQTY = qtyInput.value 
+                } catch { 
+                    productQTY = 1; 
+                }
+            }
+            let totalSellingPrice = Number(productQTY) * Number(sellingPrice); 
+            let productName = productSelectInput.options[productSelectInput.selectedIndex].text; 
+            var newRow = document.createElement('tr'); 
+
+            let productObj = [productId, productQTY, totalSellingPrice]
+            productsList.push(productObj); 
+            productsList.push('-'); 
+            count++; 
+
+            productObj.push(count);
+
+            
+
+            newRow.innerHTML = `
+            <th scope="row">${productId}</th>
+            <td>${productName}</td>
+            <td>${productQTY}</td>
+            <td>
+                ${sellingPrice} ريال
+            </td>
+            <td>${totalSellingPrice} ريال</td>
+            <td>
+                <a class="btn btn-sm btn-danger btn-del-product">حذف</a>
+            </td>
+            `;
+    
+            tableContent.appendChild(newRow); 
+
+            btn_s_DelProduct = document.querySelectorAll('.btn-del-product'); 
+
+            btn_s_DelProduct.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    btn.parentElement.parentElement.remove();
+                    // get the count first then look for the element with the same count 
+                    // then remove it from products list 
+                    let index = productsList.indexOf(productObj); 
+
+                    if (index !== -1 ) { 
+                        // productsList.splice(index, 0)
+                        productsList.splice(index, 1) 
+                    }
+
+                })
+            })
+
+        }
+
+
+    })
+
+
+    let newOrderForm = document.querySelector('#new_order_form'); 
+    newOrderForm.addEventListener('submit', (event)=> {
+        // validate products list first 
+        event.preventDefault(); 
+
+        if (productsList.length == 0) {
+            // show error message 
+        } else { 
+            // start ajax request 
+            $.ajax({
+                url: "/order/new/{{store_id}}/", 
+                method: 'POST',
+                data: {
+                    products_list: productsList.toString(), 
+                    order_number: document.querySelector('#order-number-input').value, 
+                    // products_list: productsList, 
+                    csrfmiddlewaretoken: "{{csrf_token}}", 
+                }, success: () => {
+                    window.location.href = '/order/order-sent';
+                } 
+            })
+
+        }
+        
+    })
+
+
+</script>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    إنشاء حساب
+{% endblock title %}
+
+
+{% block content %}
+<style>
+    form > div { 
+        margin-bottom: 1.5rem;
+    }
+    form > div > label {
+        margin-bottom: 5px;
+    }
+</style>
+    <div class="container mt-2">
+        <h1>إنشاء حساب</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button type="submit" class="btn btn-dark">إنشاء حساب</button>
+            <br>
+            <a href="{% url 'user:custom-login' %}">هل لديك حساب بالفعل؟ تسجيل دخول</a>
+        </form>
+    </div>
+{% endblock content %}
+    

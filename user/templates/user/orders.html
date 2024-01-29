@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    الطلبات
+{% endblock title %}
+    
+
+{% block content %}
+
+<section>
+    <div class="container mt-2 mb-3">
+        <h2>الطلبات</h2>
+
+        <div class="row">
+            
+            {% for order in orders %}
+                <div class="col-md-3 card p-3 " >
+                    <h5>رقم الطلب: {{order.id}}</h5>
+                    <h6>
+                        حالة الطلب: 
+                        {{order.get_status_display}}
+                    </h6>
+                    <h6>
+                        الإجمالي: 
+                        {{order.total}}
+                    </h6>
+                    <h6>
+                        عدد المنتجات: 
+                        {{order.products.count}}
+                    </h6>
+                    <a href="" class="mt-3 btn btn-dark">تفاصيل</a>
+                </div>
+            {% endfor %}
+                
+
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock content %}
+    

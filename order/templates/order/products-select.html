@@ -1,0 +1,11 @@
+<div class="mb-3">
+    <label for="products-input" class="form-label">المنتجات*</label>
+    <select name="products-input" required class="form-select" id="products-input">
+        
+        {% for product in products %}
+            <option value="{{product.id}}">{{product.name}}</option>
+        {% endfor %}
+            
+    </select>
+    
+</div>
