@@ -1,32 +1,73 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load static %}
 
 
 {% block title %}
-    الملف الشخصي    
+    الملف الشخصي
 {% endblock title %}
     
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+          
+{% endblock stylesheets %}
 
 {% block content %}
-
-<style>
-
-</style>
-
-
-
-<section>
-    <div class="container mt-2 mb-3">
-        <h2>تحديث الملف الشخصي</h2>
-        <form method="POST">
-            {% csrf_token %}
-            {{form|crispy}}
-            <button type="submit" class="btn btn-dark">تحديث الملف الشخصي</button>
-        </form>
-    </div>
-</section>
-
-
-{% endblock content %}
     
+    
+    <main>
+        <div class="container">
+            <div class="top-img"></div>
+            <section class="content">
+                <div class="sidebar">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fa-regular fa-bell"></i>
+                                الاشعارات
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa-brands fa-first-order"></i>
+                                الطلبات
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                طلبات بانتظار الدفع
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa-regular fa-star"></i>
+                                الامنيات
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa-regular fa-user"></i>
+                                حسابي
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                تسجيل الخروج
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info">
+                    <h3 class="title">الاشعارات</h3>
+                    <div class="center">
+                        <!-- <div class="circle"></div> -->
+                        <h3>لا توجد اشعارات</h3>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    {% endblock content %}

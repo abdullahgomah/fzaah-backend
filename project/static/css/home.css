@@ -1,0 +1,103 @@
+/* Start Main */
+/*/ Start Products /*/
+main .big-img{
+    width: 100%;
+    margin: 10px 0;
+}
+main .products{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+main .products .product .image img{
+    width: 100%;
+}
+main .products .product .info h3{
+    font-weight: 500;
+}
+main .products .product .info .evaluation{
+    /* text-align: left; */
+    /* display: block; */
+    /* width: 100%; */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+main .products .product .info .evaluation i{
+    color: #fbbf24;
+}
+main .products .product .info .evaluation *{
+    margin: 2px;
+}
+main .products .product .info button{
+    width: 100%;
+    background: none;
+    border: 2px solid #436D69;
+    border-radius: 10px;
+    color: #436D69;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+}
+/*/ End Products /*/
+/*/ Start Customers /*/
+.customers .box{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    text-align: center;
+    margin: 10px 0;
+}
+.customers .customer{
+    background-color: #fff;
+    padding: 20px;
+}
+.customers .customer *{
+    margin: 5px 0;
+}
+.customers .customer p{
+    line-height: 25px;
+}
+.customers .customer .fa-user{
+    font-size: 24px;
+}
+.customers .customer .customer-eval{
+    display: flex;
+    justify-content: center;
+}
+.customers .customer .customer-eval i{
+    color: #fbbf24;
+}
+@media (max-width: 768px){
+    .customers .box{
+        grid-template-columns: 1fr;
+    }
+}
+/*/ End Customers /*/
+/*/ Start Features /*/
+.features .box{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    text-align: center;
+    margin: 10px 0;
+}
+.features .feat{
+    background-color: #fff;
+    padding: 30px;
+}
+.features .feat *{
+    margin: 5px 0;
+}
+.features .feat i{
+    background-color: #144843;
+    padding: 20px;
+    color: white;
+    border-radius: 100%;
+    font-size: 24px;
+}
+/*/ End Features /*/
+/* End Main */

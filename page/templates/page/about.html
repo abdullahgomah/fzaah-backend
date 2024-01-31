@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    من نحن؟
+{% endblock title %}
+    
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock stylesheets %}
+    
+
+{% block content %}
+    
+    <main>
+        <div class="container">
+            <section class="content">
+                <h2 class="title">ما هي خدمة فزعة</h2>
+                <p>خدمة فزعه خدمة مقدمة من مؤسسة خيارات السداد للتجارة
+                    تتيح من خلالها امكانية العميل من اعادة بيع مشترواته
+                    وذلك من خلال استلام مشتروات العميل و توفير مشتري فوري وتحويل المبلغ الى حساب العميل الذي يتم ادخاله اثناء عملية الطلب
+                </p>
+                <p>
+                    خدمة فزعه
+                    مؤسسة خيارات السداد للتجارة (3550150985)
+                    تبوك - حي الربوه
+                    خدمة العملاء 0570767020    
+                </p>
+            </section>
+        </div>
+    </main>
+
+{% endblock content %}

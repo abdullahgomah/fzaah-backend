@@ -1,0 +1,62 @@
+/* Start Main */
+main .content{
+    width: 80%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+} 
+main .content .title{
+    margin-bottom: 20px;
+}
+main .content .comment-box{
+    width: 100%;
+    border: 2px solid #E5E7EB;
+    padding: 10px;
+    border-radius: 10px;
+    height: 100px;
+}
+main .content .comment-box::placeholder{
+    position: absolute;
+    top: 10px;
+}
+main .content button{
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: #436D69;
+    color: white;
+    padding: 8px;
+    margin: 20px 0;
+}
+main .content .comment{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+}
+main .content .comments-count{
+    color: #6B7280;
+}
+main .content .comment .image i{
+    font-size: 20px;
+    margin-left: 10px;
+}
+main .content .comment .info p{
+    color: #6B7280;
+}
+main .content .comment .date{
+    flex: 1;
+    text-align: left;
+    color: #6B7280;
+}
+@media (max-width: 880px){
+    main .content{
+        width: 90%;
+    }
+}
+@media (max-width: 768px){
+    main .content{
+        width: 100%;
+    }
+}
+/* End Main */

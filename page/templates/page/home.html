@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    الصفحة الرئيسية
+{% endblock title %}
+    
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock stylesheets %}
+
+
+
+{% block content %}
+    
+    
+<main>
+        <div class="container">
+            <img src="images/01.png" alt="" class="big-img">
+            <h2>طلب بيع منتج</h2>
+            <section class="products">
+                <div class="product">
+                    <div class="image">
+                        <img src="{% static 'images/05.png' %}" alt="">
+                    </div>
+                    <div class="info">
+                        <h3>طلب اعادة بيع</h3>
+                        <div class="evaluation">
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <span>4.9</span>
+                        </div>
+                        <br>
+                        <a href="{% url 'order:select-store' %}" class="btn btn-outline">
+                            <!-- <li><i class="fa-solid fa-basket-shopping"></i></li> -->
+                            طلب اعادة بيع
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <img src="images/02.png" alt="" class="big-img">
+            <img src="images/03.png" alt="" class="big-img">
+            <section class="customers">
+                <h2>اراء العملاء</h2>
+                <div class="box">
+                    <div class="customer">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>يوسف محمد</h3>
+                        <ul class="customer-eval">
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                        <p>سويت الطلب حصل تأخير بس الغلط كان مني مانتبهت للاعلان ان التحويل من 4 عصرا بس الله يعطيهم العافيه وصلت وماقصرو الله يباركلهم فيما رزقكهم يارب
+                        </p>
+                    </div>
+                    <div class="customer">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>يوسف محمد</h3>
+                        <ul class="customer-eval">
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                        <p>سويت الطلب حصل تأخير بس الغلط كان مني مانتبهت للاعلان ان التحويل من 4 عصرا بس الله يعطيهم العافيه وصلت وماقصرو الله يباركلهم فيما رزقكهم يارب
+                        </p>
+                    </div>
+                    <div class="customer">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>يوسف محمد</h3>
+                        <ul class="customer-eval">
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                        <p>سويت الطلب حصل تأخير بس الغلط كان مني مانتبهت للاعلان ان التحويل من 4 عصرا بس الله يعطيهم العافيه وصلت وماقصرو الله يباركلهم فيما رزقكهم يارب
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="features">
+                <h2>اهم المزايا</h2>
+                <div class="box">
+                    <div class="feat">
+                        <i class="fa-solid fa-box"></i>
+                        <h3>مؤسسة خيارات السداد للتجارة</h3>
+                        <p>جميع المعاملات تتم بطريقة شرعية 100%</p>
+                    </div>
+                    <div class="feat">
+                        <i class="fa-solid fa-box"></i>
+                        <h3>مؤسسة خيارات السداد للتجارة</h3>
+                        <p>جميع المعاملات تتم بطريقة شرعية 100%</p>
+                    </div>
+                    <div class="feat">
+                        <i class="fa-solid fa-box"></i>
+                        <h3>مؤسسة خيارات السداد للتجارة</h3>
+                        <p>جميع المعاملات تتم بطريقة شرعية 100%</p>
+                    </div>
+                </div>
+            </section>
+            <img src="images/04.png" alt="" class="big-img">
+        </div>
+    </main>
+
+
+{% endblock content %}
