@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    من نحن؟
+{% endblock title %}
+    
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock stylesheets %}
+    
+
+{% block content %}
+    
+    <main>
+        <div class="container">
+            <section class="content">
+                <h2 class="title">ما هي خدمة فزعة</h2>
+                <p>
+                    {{info.privacy_policy|safe}}
+                </p>
+            </section>
+        </div>
+    </main>
+
+{% endblock content %}
