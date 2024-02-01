@@ -8,13 +8,40 @@
 
 {% block content %}
     
+<style>
+    form * {
+        display: block;
+    }
+    form input, form select { 
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    }
+    
+    form input:focus, form select:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+</style>
 
 <section>
     <div class="container">
         <form method="POST">
             {% csrf_token %}
             <label class="form-label" for="store-input">اختر المتجر*</label>
-            <select class="form-select" name="store-input" id="store-input" required>
+            <select class="form-select mt-2" name="store-input" id="store-input" required>
                 
                 {% for store in stores %}
                     <option value="{{store.id}}">{{store.name}}</option>

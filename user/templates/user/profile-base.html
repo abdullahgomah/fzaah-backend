@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+{% endblock title %}
+    
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock stylesheets %}
+
+{% block content %}    
+    <main>
+        <div class="container">
+            <div class="top-img"></div>
+            <section class="content">
+                <div class="sidebar">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fa-regular fa-bell"></i>
+                                الاشعارات
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'user:user-orders' %}">
+                                <i class="fa-brands fa-first-order"></i>
+                                الطلبات
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                طلبات بانتظار الدفع
+                            </a>
+                        </li> -->
+                        <!-- <li>
+                            <a href="">
+                                <i class="fa-regular fa-star"></i>
+                                الامنيات
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="{% url 'user:profile' %}">
+                                <i class="fa-regular fa-user"></i>
+                                حسابي
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'user:custom-logout' %}">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                تسجيل الخروج
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info">
+                    <h3 class="title">
+                        
+                        {% block section_title %}
+                            
+                        {% endblock section_title %}
+                            
+                    </h3>
+                    <div class="center">
+                        
+                        {% block section_content %}
+                            
+                        {% endblock section_content %}
+                            
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+{% endblock content %}

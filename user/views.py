@@ -93,4 +93,5 @@ def user_orders(request):
         'orders': orders 
     }
 
-    return render(request, 'user/orders.html', context)
+    return render(request, 'user/profile-orders.html', context)
+

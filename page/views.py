@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from page.models import Info 
+from order.models import Review 
 
 # Create your views here.
 def index(request): 
-    context= {} 
-    return render(request, 'page/home.html', context={})
+    reviews = Review.objects.all()[:3]
+    context= {
+        'reviews': reviews 
+    } 
+    return render(request, 'page/home.html', context)
 
 
 def about(request): 

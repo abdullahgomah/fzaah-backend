@@ -21,3 +21,11 @@ class OrderFilter(admin.ModelAdmin):
 
 
 admin.site.register(Order, OrderFilter) 
+
+
+class ReviewAdmin(admin.ModelAdmin): 
+    model = Review 
+    list_display = ('user', 'order', 'rate') 
+
+admin.site.register(Review, ReviewAdmin) 
+

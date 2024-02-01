@@ -39,3 +39,15 @@ class OrderProduct(models.Model):
 
     class Meta: 
         verbose_name_plural = 'المنتجات المطلوبة'
+
+
+
+class Review(models.Model): 
+    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True) 
+    order=  models.OneToOneField(Order, on_delete=models.SET_NULL, null=True, blank=True) 
+    rate = models.IntegerField(default=5, verbose_name="عدد النجوم")
+    content = models.TextField(verbose_name='المحتوى')
+    
+    class Meta:
+        verbose_name = 'تقييم'
+        verbose_name_plural = 'التقييمات'

@@ -10,6 +10,11 @@ class Info(models.Model):
     terms_conditions = RichTextField(config_name='awesome_ckeditor', null=True, blank=True)
     return_policy = RichTextField(config_name='awesome_ckeditor', null=True, blank=True)
     privacy_policy = RichTextField(config_name='awesome_ckeditor', null=True, blank=True)
+    email = models.EmailField(blank=True, null=True, verbose_name='البريد الإلكتروني') 
+    whatsapp_number = models.CharField(max_length=20, verbose_name='رقم الواتساب', null=True, blank=True) 
+    primary_number = models.CharField(max_length=20, verbose_name='رقم اتصال أساسي', null=True, blank=True) 
+    secondary_number = models.CharField(max_length=20, verbose_name='رقم اتصال ثانوي', null=True, blank=True) 
+    
 
     class Meta: 
         verbose_name = 'معلومات الموقع'

@@ -44,9 +44,11 @@
             <section class="customers">
                 <h2>اراء العملاء</h2>
                 <div class="box">
+                    
+                    {% for review in reviews %}
                     <div class="customer">
                         <i class="fa-solid fa-user"></i>
-                        <h3>يوسف محمد</h3>
+                        <h3> {{review.user}}</h3>
                         <ul class="customer-eval">
                             <li><i class="fa-solid fa-star"></i></li>
                             <li><i class="fa-solid fa-star"></i></li>
@@ -57,32 +59,9 @@
                         <p>سويت الطلب حصل تأخير بس الغلط كان مني مانتبهت للاعلان ان التحويل من 4 عصرا بس الله يعطيهم العافيه وصلت وماقصرو الله يباركلهم فيما رزقكهم يارب
                         </p>
                     </div>
-                    <div class="customer">
-                        <i class="fa-solid fa-user"></i>
-                        <h3>يوسف محمد</h3>
-                        <ul class="customer-eval">
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                        </ul>
-                        <p>سويت الطلب حصل تأخير بس الغلط كان مني مانتبهت للاعلان ان التحويل من 4 عصرا بس الله يعطيهم العافيه وصلت وماقصرو الله يباركلهم فيما رزقكهم يارب
-                        </p>
-                    </div>
-                    <div class="customer">
-                        <i class="fa-solid fa-user"></i>
-                        <h3>يوسف محمد</h3>
-                        <ul class="customer-eval">
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                        </ul>
-                        <p>سويت الطلب حصل تأخير بس الغلط كان مني مانتبهت للاعلان ان التحويل من 4 عصرا بس الله يعطيهم العافيه وصلت وماقصرو الله يباركلهم فيما رزقكهم يارب
-                        </p>
-                    </div>
+                    {% endfor %}
+                        
+
                 </div>
             </section>
             <section class="features">
