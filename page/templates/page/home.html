@@ -19,7 +19,17 @@
 <main>
         <div class="container">
             <img src="images/01.png" alt="" class="big-img">
-            <h2>طلب بيع منتج</h2>
+            
+            {% if messages %}
+            
+            {% for msg in messages %}
+                <h2>{{msg}}</h2>
+            {% endfor %}
+                
+            {% else %}
+            <h2>طلب بيع منتج</h2>        
+            {% endif %}
+                
             <section class="products">
                 <div class="product">
                     <div class="image">

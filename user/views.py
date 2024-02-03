@@ -42,7 +42,8 @@ def enter_otp(request):
 
             if str(otp) == str(stored_otp): 
                 login(request, user)
-                return redirect('user:profile') 
+                messages.add_message(request, messages.SUCCESS, f"أهلا، {user.username}")
+                return redirect('page:index') 
 
     context = {} 
     return render(request, 'user/enter-otp.html', context=context)
