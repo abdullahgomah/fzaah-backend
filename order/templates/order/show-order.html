@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{order.number}}
+{% endblock title %}
+    
+
+
+{% block content %}
+
+
+<h4>رقم الطلب: {{order.number}}</h4>
+<h4>حالة الطلب: {{order.get_status_display}}</h4>
+
+{% for product in order_products %}
+    
+{% endfor %}
+    
+
+{% endblock content %}
+    

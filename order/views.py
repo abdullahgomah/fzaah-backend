@@ -101,3 +101,11 @@ def select_store(request):
         'stores': stores, 
     }
     return render(request, 'order/select-store.html', context)
+
+
+
+@login_required
+def show_order(request, number):
+    orders = Order.objects.filter(user=request.user).filter(number=number)
+    context=  {} 
+    return render(request, 'order/show-order.html', context)
