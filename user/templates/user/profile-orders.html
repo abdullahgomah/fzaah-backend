@@ -28,6 +28,7 @@
         width: 200px; 
     }
 </style>
+<div class="container">
 
 <section class="products mt-3">
     {% for order in orders %}
@@ -43,7 +44,7 @@
                 <span>4.9</span>
             </div> -->
             <br>
-            <a href="{% url 'order:select-store' %}" class="btn btn-outline">
+            <a href="{% url 'order:show-order' order.number %}" class="btn btn-outline">
                 <!-- <li><i class="fa-solid fa-basket-shopping"></i></li> -->
                 تفاصيل الطلب
             </a>

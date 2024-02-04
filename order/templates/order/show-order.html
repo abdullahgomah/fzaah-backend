@@ -8,14 +8,56 @@
 
 {% block content %}
 
+<style>
+</style>
 
-<h4>رقم الطلب: {{order.number}}</h4>
-<h4>حالة الطلب: {{order.get_status_display}}</h4>
+<div class="container">
+    <h2>{{order.number}}</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>رقم الطلب: {{order.number}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>حالة الطلب: <span class="">{{order.get_status_display}}</span></h4>
+        </div>
+        <div class="col-md-4">
+            <h4>عدد المنتجات: {{order.products.all.count}}</h4>
+        </div>
+    </div>
+    
+    {% for product in order_products %}
+        
+    {% endfor %}
 
-{% for product in order_products %}
-    
-{% endfor %}
-    
+<div class="mt-3 updated-products-container">
+    <h3>المنتجات</h3>
+    <br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">رقم المنتج</th>
+            <th scope="col">اسم المنتج</th>
+            <th scope="col">الكمية</th>
+            <th scope="col">سعر البيع</th>
+            <th scope="col">الاجمالي</th>
+          </tr>
+        </thead>
+        <tbody id="table-content">
+            {% for product in order.products.all %}
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.product.name}}</td>
+                <td>{{product.qty}}</td>
+                <td>{{product.product.selling_price}} ريال سعودي</td>
+                <td>{{product.total}} ريال سعودي</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+
+
+</div>
 
 {% endblock content %}
-    

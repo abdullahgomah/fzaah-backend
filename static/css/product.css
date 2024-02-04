@@ -1,0 +1,64 @@
+/* Start Main */
+main .product-show .content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+main .product-show .content .image{
+    margin-left: 10px;
+}
+main .product-show .content .image img{
+    width: 100%;
+}
+main .product-show .content .info *{
+    margin: 5px 0;
+}
+main .product-show .content .info .eval{
+    display: flex;
+    align-items: center;
+}
+main .product-show .content .info .eval i{
+    color: #fbbf24;
+}
+@media (max-width: 1200px){
+    main .product-show .content .info .eval{
+        justify-content: center;
+    }
+    main .product-show .content .info{
+        text-align: center;
+    }
+}
+/*/ Start Product Order /*/
+.product-order .add-order{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+.product-order .add-order .video{
+    background-color: #436D69;
+}
+.product-order .add-order .form .full{
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+}
+.product-order .add-order .form button{
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    color: white;
+    background-color: #436D69;
+    cursor: pointer;
+}
+.product-order .table{
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .product-order .add-order {
+      grid-template-columns: 1fr; /* Set a single column for mobile screens */
+    }
+}
+/*/ End Product Order /*/
+/* End Main */

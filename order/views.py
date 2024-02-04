@@ -106,6 +106,8 @@ def select_store(request):
 
 @login_required
 def show_order(request, number):
-    orders = Order.objects.filter(user=request.user).filter(number=number)
-    context=  {} 
+    order = Order.objects.filter(user=request.user).get(number=number)
+    context=  {
+        'order': order,
+    } 
     return render(request, 'order/show-order.html', context)
