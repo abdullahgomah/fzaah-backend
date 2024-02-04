@@ -1,0 +1,22 @@
+{% extends 'user/profile-base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+    تعديل الملف الشخصي
+{% endblock title %}
+
+{% block section_title %}
+تعديل الملف الشخصي
+{% endblock section_title %}
+    
+{% block section_content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-dark">حفظ التعديلات</button>
+</form>
+
+{% endblock section_content %}

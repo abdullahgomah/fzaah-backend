@@ -96,3 +96,17 @@ def user_orders(request):
 
     return render(request, 'user/profile-orders.html', context)
 
+
+@login_required
+def edit_profile(request):
+    form = UpdateUserForm(instance=request.user) 
+    if request.POST:
+        form = UpdateUserForm(request.POST, instance=request.user) 
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, "تم حفظ التعديلات بنجاح")
+            return redirect('user:edit-profile')
+    context = {
+        'form': form, 
+    } 
+    return render(request, 'user/profile-edit.html', context)
