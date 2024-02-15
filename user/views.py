@@ -105,7 +105,7 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, "تم حفظ التعديلات بنجاح")
-            return redirect('user:edit-profile')
+            return redirect('user:profile')
     context = {
         'form': form, 
     } 

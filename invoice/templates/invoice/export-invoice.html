@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}إصدار الفاتورة{% endblock title %}
+
+
+{% block content %}
+
+<section>
+    <div class="container">
+        <h3 class="mb-3">إصدار الفاتورة</h3>
+        <form method="POST">
+
+            {% csrf_token %}
+        
+            
+            <input type="text" class="form-control" name='order-number-input' required placeholder="أدخل رقم الطلب">
+            <button type="submit" class="btn btn-dark mt-2">إصدار</button>
+        
+        </form>
+
+    </div>
+</section>
+
+
+{% endblock content %}

@@ -42,3 +42,19 @@ def show_invoice(request, order_number):
 def order_not_found(request): 
     context = {} 
     return render(request, 'order/not-found.html', context)
+
+
+@login_required
+def export_invoice(request): 
+    user = request.user 
+
+    if not user.is_staff: 
+        return redirect('page:index') 
+
+    if request.POST: 
+        order_number_input = request.POST.get('order-number-input') 
+        return redirect('invoice:show-invoice', order_number=order_number_input)
+    
+    context = {} 
+
+    return render(request, 'invoice/export-invoice.html', context)

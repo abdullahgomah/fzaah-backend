@@ -8,6 +8,20 @@
     list-style: none;
     font-family: "Rubik", sans-serif;
 }
+:root {
+    --primary-color: #10a198;
+}
+
+.msg {
+    padding: 0.4rem 1rem;
+    background: #10a198;
+    width: fit-content;
+    color: white;
+    border-radius: 2rem;
+    font-size: 1rem;
+    width: 400px;
+    max-width: 90%;
+}
 
 a, a:visited, a:active {
     color: black; 
